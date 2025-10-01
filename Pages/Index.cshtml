@@ -1,0 +1,105 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "MyPortfolio";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPortfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/styles.css" />
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container nav-container">
+            <a class="brand" href="#top">MyPortfolio</a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Portfolio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero" role="region" aria-label="Hero">
+            <div class="overlay">
+                <h1>Hello, I'm Wilmer</h1>
+                <p>Frontend Developer & Designer</p>
+                <a class="btn cta" href="#about">Hire Me</a>
+            </div>
+        </section>
+
+        <section id="about" class="about container" role="region" aria-label="About Me">
+            <img class="avatar" src="~/a1d6a213-1b53-4df3-8c60-7250b21a91cb.jpg" alt="Profile picture" />
+            <h2>About Me</h2>
+            <p>Passionate web developer skilled in creating responsive and engaging websites.</p>
+            <ul class="skills">
+                <li>HTML5</li>
+                <li>CSS3 </li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="projects" role="region" aria-label="Portfolio">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="grid">
+                    <article class="card">
+                        <h3>Sample Project 1</h3>
+                        <p>Short description of the project highlighting features and tech.</p>
+                        <a href="#" class="btn">View</a>
+                    </article>
+                    <article class="card">
+                        <h3>Sample Project 2</h3>
+                        <p>Short description of the project highlighting features and tech.</p>
+                        <a href="#" class="btn">View</a>
+                    </article>
+                    <article class="card">
+                        <h3>Sample Project 3</h3>
+                        <p>Short description of the project highlighting features and tech.</p>
+                        <a href="#" class="btn">View</a>
+                    </article>
+                    <article class="card">
+                        <h3>Sample Project 4</h3>
+                        <p>Short description of the project highlighting features and tech.</p>
+                        <a href="#" class="btn">View</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>© <span id="year"></span> MyPortfolio. All rights reserved.</p>
+            <div class="socials">
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="GitHub">GitHub</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        // smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(function(link){
+            link.addEventListener('click', function(e){
+                const targetId = this.getAttribute('href');
+                if (targetId.length > 1) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
